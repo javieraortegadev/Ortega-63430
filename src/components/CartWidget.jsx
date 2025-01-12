@@ -1,8 +1,11 @@
+import {CiShoppingCart} from 'react-icons/ci'
+import Badge from 'react-bootstrap/Badge';
 const CartWidget = () => {
     return (
         <div className="cartWidget-container">
-            <img src="./img/carrito.png" alt="carrito" />
-            <span>{5}</span>
+           <CiShoppingCart color='black' fontSize={'2rem'} />
+           <Badge bg="dark">5</Badge>
+          
         </div>
     )
 }

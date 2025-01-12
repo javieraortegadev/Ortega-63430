@@ -1,0 +1,11 @@
+.brand-logo{
+    width: 10rem;
+}
+.navbar-nav {
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: center;
+}
+.navbar-nav .nav-link {
+    margin: 0 50px; 
+}
