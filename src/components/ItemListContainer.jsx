@@ -1,13 +1,33 @@
 import ItemCount from "./ItemCount"
+import {getProducts} from "../mock/data"
+import { useEffect, useState } from "react"
+import ItemList from "./ItemList"
 
-const onAdd = (cantidad) => {
-  alert(`compraste ${cantidad} productos`)
-}
 const ItemListContainer = (props) => {
+  const [productsList, setProductsList] = useState([])
+  const [loader, setLoader] = useState(false)
+  const onAdd = (cantidad) => {
+    alert(`compraste ${cantidad} productos`)
+  }
+
+  useEffect(()=>{
+    //prender el loader
+    setLoader(true)
+   //llamamos a la promesa
+    getProducts()
+    //tratamos y la guardamos en un estado
+    .then((res)=> setProductsList(res))
+    //atrapamos el error
+    .catch((error)=> console.log(error, 'error'))
+    //apagamos el loader al final
+    .finally(()=> setLoader(false))
+},[])
     return (
         <div>
           <h1>{props.greeting}</h1>
-          Este componente despues lo sacamos
+          {loader ? <p>Cargando...</p>:<ItemList productsList={productsList}/>}
+          
+          {/* Este componente despues lo sacamos */}
           <ItemCount stock={8} onAdd={onAdd}/>
         </div>
     )
