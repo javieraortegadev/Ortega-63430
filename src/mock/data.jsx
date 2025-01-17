@@ -51,3 +51,14 @@ export const getProducts = () => {
         }, 2000)
     })
 }
+
+export const getOneProduct = (id) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            //dinamica y recomendable
+            let prod = products.find((product) => product.id === id)
+            resolve(prod)
+            // version harcodeada: resolve(products[0])
+        }, 2000)
+    })
+}

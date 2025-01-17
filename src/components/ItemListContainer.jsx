@@ -6,9 +6,7 @@ import ItemList from "./ItemList"
 const ItemListContainer = (props) => {
   const [productsList, setProductsList] = useState([])
   const [loader, setLoader] = useState(false)
-  const onAdd = (cantidad) => {
-    alert(`compraste ${cantidad} productos`)
-  }
+  
 
   useEffect(()=>{
     //prender el loader
@@ -28,7 +26,7 @@ const ItemListContainer = (props) => {
           {loader ? <p>Cargando...</p>:<ItemList productsList={productsList}/>}
           
           {/* Este componente despues lo sacamos */}
-          <ItemCount stock={8} onAdd={onAdd}/>
+         
         </div>
     )
 }
